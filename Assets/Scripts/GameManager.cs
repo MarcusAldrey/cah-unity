@@ -5,27 +5,28 @@ using System.IO;
 
 public class GameManager : MonoBehaviour
 {
+
+    public GameObject canvas;
+
     [System.Serializable]
-    public class WhiteCard {
+    public class AllWhiteCards {
         
         public List<string> answers;
         public static string jsonString;
-        public static WhiteCard CreateFromJSON(string jsonString) { 
-            return JsonUtility.FromJson<WhiteCard>(jsonString);
+        public static AllWhiteCards CreateFromJSON(string jsonString) { 
+            return JsonUtility.FromJson<AllWhiteCards>(jsonString);
         }
     }
 
     // Start is called before the first frame update
     void Start()
-    {   
-        string jsonString;
-        WhiteCard card1 = new WhiteCard();
-        jsonString = File.ReadAllText("Assets/Files/white_cards.json");
-        print(jsonString);
-        WhiteCard cards = WhiteCard.CreateFromJSON(jsonString);
-        foreach(string ans in cards.answers){
-            print(ans);
-        }
+    {
+       
+        string jsonString = File.ReadAllText("Assets/Files/white_cards.json");
+        AllWhiteCards whiteCards = AllWhiteCards.CreateFromJSON(jsonString);
+        /*foreach(string ans in whiteCards.answers){
+            print(ans);s
+        }*/
     }
 
     // Update is called once per frame
