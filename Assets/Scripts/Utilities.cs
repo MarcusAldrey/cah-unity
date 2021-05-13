@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CardZoom : MonoBehaviour
+public class Utilities : MonoBehaviour
 {
     public GameObject canvas;
     public GameObject playerArea;
@@ -27,8 +27,12 @@ public class CardZoom : MonoBehaviour
     public void onHoverEnter()
     {
         Destroy(playerArea.GetComponent<GridLayoutGroup>());
-        Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
         mouse_in = true;
+    }
+
+    public void changeCursorEnter()
+    {
+        Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
     }
 
   
@@ -38,17 +42,21 @@ public class CardZoom : MonoBehaviour
         
         if (mouse_in)
         {
-            if (currentSize.x <= 140)
+            if (currentSize.x <= 125)
             {
                 gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(currentSize.x + v, currentSize.y + v);
             }
         } 
     }
 
+    public void changeCursorOut()
+    {
+        Cursor.SetCursor(null, hotSpot, cursorMode);
+    }
+
     public void onHoverExit()
     {
         gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(120, 177);
         mouse_in = false;
-        Cursor.SetCursor(null, hotSpot, cursorMode);
     }
 }

@@ -42,6 +42,7 @@ public class AnswerCard : MonoBehaviour
         text = string.Format(text, ans);
         return text;
     }
+
     // Update is called once per frame
     void Update()
     {

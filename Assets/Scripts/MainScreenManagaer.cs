@@ -1,13 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class WhiteCard : MonoBehaviour
+public class MainScreenManagaer : MonoBehaviour
 {
-    public GameObject TMP_object;
-
-    public int index;
+    public GameObject startButton;
 
     // Start is called before the first frame update
     void Start()
@@ -15,10 +13,9 @@ public class WhiteCard : MonoBehaviour
         
     }
 
-    public void FixedUpdate()
+    // Update is called once per frame
+    void Update()
     {
         
     }
-
-    
 }
